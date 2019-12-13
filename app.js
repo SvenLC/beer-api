@@ -5,10 +5,14 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+const beerRoute = require('./routes/beer');
+
 const port = process.env.PORT || 4000;
 
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use('/beers', beerRoute);
 
 app.use((error, req, res, next) => {
   console.log(error);
@@ -20,6 +24,8 @@ app.use((error, req, res, next) => {
     data: data
   });
 });
+
+
 
 mongoose
   .connect(
