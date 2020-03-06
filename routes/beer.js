@@ -7,6 +7,7 @@ const router = express.Router();
 router.get('/', beerController.getBeers);
 router.get('/:articleId', beerController.getBeer);
 router.post('/', beerController.createBeer);
+router.put('/', beerController.createBeers);
 router.delete('/:articleId', beerController.deleteBeer);
 router.put('/:articleId', beerController.updateBeer);
 
