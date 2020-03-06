@@ -49,7 +49,7 @@ exports.createBeers = async (req, res, next) => {
   try {
     if (req.body && Array.isArray(req.body)) {
       const result = Beer.updateMany(req.body);
-      res.status.json(result);
+      res.status(200).json(result);
     }
   } catch (error) {
     if (!error.statusCode) {
