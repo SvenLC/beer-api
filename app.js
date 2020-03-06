@@ -7,7 +7,8 @@ const app = express();
 
 const beerRoute = require('./routes/beer');
 
-const port = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;
+const MONGO_URI = process.env.MONGODB_ADDON_URI;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -25,15 +26,14 @@ app.use((error, req, res, next) => {
   });
 });
 
-
-
 mongoose
-  .connect(
-    'mongodb://beerapicosmodb:FEQY5YCOwSnnyXrgpIOndqqclnYOzGk4yHIn7f7PlnjZBLEAXEgiCqxD1Ui9GpF59ozM3C5z7QlhkolFzkaFUA%3D%3D@beerapicosmodb.mongo.cosmos.azure.com:10255/?ssl=true&appName=@beerapicosmodb@'
-  )
+  .connect(MONGO_URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  })
   .then(result => {
-    app.listen(port);
-    console.log(result + ' Connected');
+    app.listen(PORT);
+    console.log(' Connected');
   })
   .catch(error => {
     console.log(error);
