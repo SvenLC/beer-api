@@ -8,7 +8,9 @@ const app = express();
 const beerRoute = require('./routes/beer');
 
 const PORT = process.env.PORT || 4000;
-const MONGO_URI = process.env.MONGODB_ADDON_URI;
+const MONGO_URI =
+  process.env.MONGODB_ADDON_URI ||
+  'mongodb://utxziahqphnjh31zk3ox:pz6ptqVW17xyg83KoPAk@brbpyo1rwy8ituh-mongodb.services.clever-cloud.com:27017/brbpyo1rwy8ituh';
 
 app.use(bodyParser.json());
 app.use(cors());

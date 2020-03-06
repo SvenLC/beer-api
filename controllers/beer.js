@@ -48,7 +48,7 @@ exports.createBeer = async (req, res, next) => {
 exports.createBeers = async (req, res, next) => {
   try {
     if (req.body && Array.isArray(req.body)) {
-      const result = Beer.updateMany(req.body);
+      const result = Beer.insertMany(req.body);
       res.status(200).json(result);
     }
   } catch (error) {

@@ -4,20 +4,16 @@ const Schema = mongoose.Schema;
 
 const beerSchema = new Schema({
   name: {
-    type: String,
-    require: true
+    type: String
   },
   brewery: {
-    type: String,
-    require: true
+    type: String
   },
   alcohol: {
-    type: Number,
-    require: true
+    type: Number
   },
   style: {
-    type: String,
-    require: true
+    type: String
   },
   availability: {
     type: String
@@ -32,4 +28,3 @@ const beerSchema = new Schema({
 });
 
 module.exports = mongoose.model('Beer', beerSchema);
-
